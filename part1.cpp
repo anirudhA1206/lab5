@@ -56,7 +56,7 @@ int main(int argc, char* argv[]) {
 	cl::sycl::accessor z_d(z_buf, handler, cl::sycl::write_only);
 
 	handler.parallel_for<class vector_add>(cl::sycl::range<1> { NUM_INPUTS }, [=](cl::sycl::id<1> i) {
-	    z_d[i] = x_h[i] + y_h[i];
+	    z_d[i] = x_d[i] + y_d[i];
 	  });
 
       });
