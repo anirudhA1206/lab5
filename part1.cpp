@@ -52,7 +52,7 @@ int main(int argc, char* argv[]) {
     queue.submit([&](cl::sycl::handler& handler) {
 
 	cl::sycl::accessor x_d(x_buf, handler, cl::sycl::read_only);
-	cl::sycl::accessor y_d(y_buf, handler, cl::sycl::write_only);
+	cl::sycl::accessor y_d(y_buf, handler, cl::sycl::read_only);
 	cl::sycl::accessor z_d(z_buf, handler, cl::sycl::write_only);
 
 	handler.parallel_for<class vector_add>(cl::sycl::range<1> { NUM_INPUTS }, [=](cl::sycl::id<1> i) {
