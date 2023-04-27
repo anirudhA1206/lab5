@@ -63,18 +63,18 @@ int main(int argc, char* argv[]) {
 
     queue.wait();
 
-    // Check for correctness.
+    
+  }
+  catch (cl::sycl::exception& e) {
+    std::cout << e.what() << std::endl;
+    return 1;
+  }
+// Check for correctness.
     if (z_h == correct_out) {
       std::cout << "SUCCESS!" << std::endl;
     }
     else {
       std::cout << "ERROR: Execution failed." << std::endl;
     }    
-  }
-  catch (cl::sycl::exception& e) {
-    std::cout << e.what() << std::endl;
-    return 1;
-  }
-
   return 0;
 }
