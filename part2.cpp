@@ -108,7 +108,7 @@ int main(int argc, char* argv[]) {
 	  });
       });
 
-    //queue_gpu.wait();
+    
     queue_cpu.wait();
   }
   catch (cl::sycl::exception& e) {
